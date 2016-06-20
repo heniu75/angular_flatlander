@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<body>
+    <div ng-controller="FirstController">
+        Current date is {{ itsADate | date:'yyyy-MM-dd HH-mm-ss'}}
+    </div>
+
+    <hr />
+
+    <div ng-controller="EncapsulatedController as ctrl">
+        Current date from 'EncapsulatedController' is {{ ctrl.encapsulatedDate | date:'yyyy-MM-dd HH-mm-ss'}}
+    </div>
+
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="helloDate.js"></script>
+</body>
+
+</html>

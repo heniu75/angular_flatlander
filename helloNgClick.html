@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+
+<body ng-app="clicker">
+    <div ng-controller="MyController as myController">
+        <input type="text" ng-model="message" />
+        <button ng-click="myController.sayHello('Hello ' + message)">Click me</button>
+    </div>
+
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="helloNgClick.js"></script>
+
+</html>
