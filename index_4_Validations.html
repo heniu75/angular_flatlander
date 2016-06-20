@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="store">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="application.css" />
+</head>
+
+<body ng-controller="StoreController as store">
+
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="product in store.products | orderBy:'-price'">
+            <h3> {{product.name}}
+                <em class="pull-right">{{product.price | currency}}</em>
+                <img ng-src="{{product.images[0].thumb}}" />
+            </h3>
+
+            <section ng-controller="PanelController as panel">
+                <!-- tab navigation -->
+                <ul class="nav nav-pills">
+                    <li ng-class="{ active: panel.isSelected(1) }"><a href ng-click="panel.selectTab(1)">Description</a></li>
+                    <li ng-class="{ active: panel.isSelected(2) }"><a href ng-click="panel.selectTab(2)">Specifications</a></li>
+                    <li ng-class="{ active: panel.isSelected(3) }"><a href ng-click="panel.selectTab(3)">Reviews</a></li>
+                </ul>
+                <!-- panel content - to be in sync with selected tab -->
+                <div class="panel" ng-show="panel.isSelected(1)">
+                    <h4>Description</h4>
+                    <p>{{product.description}}</p>
+                </div>
+                <div class="panel" ng-show="panel.isSelected(2)">
+                    <h4>Specifications</h4>
+                    <blockquote>No specifications yet</blockquote>
+                </div>
+                <div class="panel" ng-show="panel.isSelected(3)">
+                    <h4>Reviews</h4>
+                    <blockquote ng-repeat="review in product.reviews">
+                        <b>Stars: {{review.stars}}
+                            {{review.body}}
+                            </b>
+                        <cite> - {{review.author}} on {{review.createdOn | date:'yyyy-MM-dd HH-mm-ss'}}</cite>
+                    </blockquote>
+
+                    <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)"
+                        novalidate>
+                        <blockquote>
+                            <b>Stars: {{reviewCtrl.review.stars}}
+                            {{reviewCtrl.review.body}}
+                            </b>
+                            <cite> - {{reviewCtrl.review.author}} on {{reviewCtrl.review.createdOn | date:'yyyy-MM-dd HH-mm-ss'}}</cite>
+                        </blockquote>
+                        <select ng-model="reviewCtrl.review.stars" required>
+                            <option value="1">1 star</option>
+                            <option value="2">2 stars</option>
+                            <option value="3">3 stars</option>
+                            <option value="4">4 stars</option>
+                            <option value="5">5 stars</option>
+                        </select>
+                        <textarea ng-model="reviewCtrl.review.body" required></textarea>
+                        <label>by:</label>
+                        <input ng-model="reviewCtrl.review.author" type="email" required/>
+                        <div> reviewForm is {{ reviewForm.$valid}} </div>
+                        <input type="submit" value="Submit Review" />
+                    </form>
+
+                </div>
+            </section>
+        </li>
+    </ul>
+
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>
