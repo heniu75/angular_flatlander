@@ -50,8 +50,7 @@ CUSTOM DIRECTIVES:
 1. Dont use self-closing tags when using custom elements. Some browsers do not like this.!
     // first custom directive, the directive use will be <product-title>
     // hence the name in JS is 'productTitle' 
-    app.directive('productTitle', function()
-    {
+    app.directive('productTitle', function(){
         //define the directive object
         var definition = {};
         definition.restrict = 'E';                         // type of directive (E for element)
@@ -66,6 +65,8 @@ CUSTOM DIRECTIVES:
         then do ...
         - http-server C:\location\to\app.
 
+3. To move controller inside a directive, you assign a function to the controller directive definition object.
+        - you must also ensure you set the controllerAs alias on the directive definition object
 
 LEARNINGS / GOTCHAS:
 ==========================
