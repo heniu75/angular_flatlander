@@ -1,0 +1,60 @@
+[
+    {
+        "name": "Dodecahedron",
+        "price": 2.95,
+        "description": "This is a fabulous gem.",
+        "canPurchase": false,
+        "soldOut": false,
+        "images": [
+            {
+                "full": "imgs/ruby_large.jpg",
+                "thumb": "imgs/ruby_sm.jpg"
+            },
+            {
+                "full": "imgs/ruby_large1.jpg",
+                "thumb": "imgs/ruby_sm1.jpg"
+            }
+        ],
+        "reviews": [
+            {
+                "stars": 5,
+                "body": "I love this product!",
+                "author": "joe@thomas.com"
+            },
+            {
+                "stars": 1,
+                "body": "This product sucks!",
+                "author": "tim@hater.com"
+            }
+        ]
+    },
+    {
+        "name": "Pentagonal Gem",
+        "price": 2,
+        "description": "This is another gemmy thingie.",
+        "canPurchase": true,
+        "soldOut": false,
+        "images": [
+            {
+                "full": "imgs/ruby_large1.jpg",
+                "thumb": "imgs/ruby_sm1.jpg"
+            },
+            {
+                "full": "imgs/ruby_large1.jpg",
+                "thumb": "imgs/ruby_sm1.jpg"
+            }
+        ],
+        "reviews": [
+            {
+                "stars": 4,
+                "body": "I pretty much like!",
+                "author": "jenni@doester.com"
+            },
+            {
+                "stars": 2,
+                "body": "This product is how i say - not so goo.",
+                "author": "max@ontwosides.com"
+            }
+        ]
+    }
+]

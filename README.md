@@ -84,6 +84,7 @@ DATABINDINGS:
 Expressions such as {{tab}} define a two-way data binding. So that means the expression is re-evaluated when a property changes.
 -- The expression keeps an eye out for the value of tab so that when it does change, the expression is then updated to use this new value.
 
+6. When defining additional application modules in js, remember to add references to them from the html file
 
 DEBUG LEARNINGS:
 ==========================

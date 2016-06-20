@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="store">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="application.css" />
+</head>
+
+<body ng-controller="StoreController as store">
+
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="product in store.products | orderBy:'-price'">
+            <h3> 
+                <product-title></product-title>
+                <img ng-src="{{product.images[0].thumb}}" />
+            </h3>
+
+            <!-- Another custom directive v2 - Here we don't need to inject a controller as the directive
+            injects controller logic (see index_6_1.js) -->
+            <product-panels></product-panels>
+
+        </li>
+    </ul>
+
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="store-products.js"></script>
+    <script type="text/javascript" src="index_7.js"></script>
+</body>
+
+</html>
